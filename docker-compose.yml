@@ -1,0 +1,9 @@
+services:
+  payment-app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+    environment:
+      APP_WEBHOOK_SECRET: local-demo-secret-change-me

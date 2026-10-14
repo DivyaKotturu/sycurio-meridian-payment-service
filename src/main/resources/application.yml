@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/payments;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: false
+      path: /h2-console
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+app:
+  base-url: ${APP_BASE_URL:http://localhost:8080}
+  meridian-base-url: ${MERIDIAN_BASE_URL:http://localhost:8080/mock-meridian/v1}
+  webhook-secret: ${WEBHOOK_SECRET:local-demo-secret-change-me}
+  mock-enabled: ${MOCK_ENABLED:true}
